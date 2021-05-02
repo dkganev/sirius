@@ -1,0 +1,36 @@
+<!-- The Modal -->
+<div class="modal" id="dayModal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <form >    
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h3 class="modal-title dayModal-title"></h3>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                
+                <div class="modal-body">
+                    <div class="form-group">
+                        {% for key, dayRow in scheduleOfDay %}
+                            <div class="row">
+                                <div class="col-sm-2 text-right">
+                                </div>
+                                <div class="col-sm-4">
+                                    <button type="button" onclick="openAppointmentForm('{{dayRow.1.id}}', '{{dayRow.2.title}}')" id="btn{{dayRow.1.id}}" class="btn btn-outline-secondary form-control scheduleButton" data-dismiss="save">{{dayRow.1.title}}</button>
+                                </div>    
+                                <div class="col-sm-4">
+                                    <button type="button" onclick="openAppointmentForm('{{dayRow.2.id}}', '{{dayRow.2.title}}' )" id="btn{{dayRow.2.id}}" class="btn btn-outline-secondary form-control scheduleButton" disabled='' data-dismiss="save">{{dayRow.2.title}}</button>
+                                </div>    
+                            </div>
+                        {% endfor %}    
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

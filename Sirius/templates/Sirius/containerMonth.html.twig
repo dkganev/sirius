@@ -1,0 +1,57 @@
+    
+<div class="container">
+    <h1>Schedule list for {{ monthThitle[1].title }}</h1>
+    <input type="hidden" name="onMonthF" value="{{ monthThitle[1].title }}">
+            <table id="table" >
+                <thead>
+                    <tr>
+                        <th data-field="number" data-halign="center" data-align="center" >
+                            <a href="{{monthThitle[0].onClick}}" style="text-decoration: none; color:{{monthThitle[0].color}};">
+                                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                            </a>
+                        </th>
+                        <th colspan="5" data-field="number" data-halign="center" data-align="center" >
+                            {{ monthThitle[1].title}}
+                        </th>
+                        <th data-field="number" data-halign="center" data-align="center" >
+                            <a href="{{monthThitle[2].onClick}}" style="text-decoration: none; color:{{monthThitle[2].color}};">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </a>
+                        </th>
+                    </tr>
+                    <tr>
+                        {% for key, monthRow in monthHeder %}
+                            <th data-field="{{ key}}" data-halign="center" data-align="center" >
+                                <b >
+                                    <span style="color:{{monthRow.color}}">
+                                        {{ monthRow.title}}
+                                    </span>
+                                </b>
+                            </th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody> 
+                    
+                    {% for weekKey, weekRow in daysOfMonth %}
+                        <tr >
+                            {% for dayKey, dayRow in weekRow %}
+                                <td>
+                                    <a href="#" onclick="openDayModal({{ dayRow.onDay }}, {{ dayRow.onMonth }}, {{ dayRow.onYear }}, '{{ monthThitle[1].title}}')">
+                                    <span style="color:{{dayRow.color}}; ">
+                                        {{ dayRow.title }}
+                                    </span>
+                                    </a>
+                                </td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}   
+                </tbody>
+                
+            </table>
+            
+            
+</div>
+<!-- The Modal -->
+{{ include('Sirius/dayModal.html.twig') }}
+{{ include('Sirius/appointmentModal.html.twig') }}

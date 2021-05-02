@@ -1,0 +1,30 @@
+index:
+    path: /
+    controller: App\Controller\Schedule::Index
+    methods:    [GET]
+
+Schedule:
+    path: /Schedule
+    controller: App\Controller\Schedule::Index
+    methods:    [GET]
+
+SchedulePost:
+    path: /Schedule
+    controller: App\Controller\Schedule::Index
+    methods:    [POST]
+
+openDayModal:
+    path: /openDayModal
+    controller: App\Controller\Schedule::openDayModal
+    methods:    [POST]
+
+saveAppointmentForm:
+    path: /saveAppointmentForm
+    controller: App\Controller\Schedule::saveAppointmentForm
+    methods:    [POST]
+
+
+
+
+
+
