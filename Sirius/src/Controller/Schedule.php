@@ -77,6 +77,7 @@ class Schedule  extends AbstractController {
                 'onMonth' => 0,
                 'onYear' => 0, 
                 'onclick' => '', 
+                'backgroundColor' => '',
                 'color' => ''
             ];
         }
@@ -92,6 +93,7 @@ class Schedule  extends AbstractController {
                         'onMonth' => $i,
                         'onYear' => 0,
                         'onclick' => '', 
+                        'backgroundColor' => '',
                         'color' => 'grey'
                     ];
                 }
@@ -102,19 +104,32 @@ class Schedule  extends AbstractController {
                         'onMonth' => $i,
                         'onYear' => 0,
                         'onclick' => '', 
+                        'backgroundColor' => '',
                         'color' => 'red'
                     ];
                 }
             }
             else{
-                if (strtotime($dayOfMonth)<= strtotime($curentDay)){
+                if (strtotime($dayOfMonth)< strtotime($curentDay)){
                     $daysOfMonth[$w][$i] = [
                         'title' => $dayOfMonth, 
                         'onDay' => '-1', //date('d', strtotime($dayOfMonth)),
                         'onMonth' => $theMonth,
                         'onYear' => $theYear,
                         'onclick' => $dayOfMonth,
+                        'backgroundColor' => '',
                         'color' => 'grey'
+                    ];
+                }
+                else if (strtotime($dayOfMonth)== strtotime($curentDay)){
+                    $daysOfMonth[$w][$i] = [
+                        'title' => $dayOfMonth, 
+                        'onDay' => date('d', strtotime($dayOfMonth)),
+                        'onMonth' => $theMonth,
+                        'onYear' => $theYear,
+                        'onclick' => $dayOfMonth,
+                        'backgroundColor' => 'background-color: #DCDCDC',
+                        'color' => 'white'
                     ];
                 }
                 else{
@@ -125,6 +140,7 @@ class Schedule  extends AbstractController {
                         'onMonth' => $theMonth,
                         'onYear' => $theYear,
                         'onclick' => $dayOfMonth,
+                        'backgroundColor' => '',
                         'color' => 'black'
                     ];
                 }

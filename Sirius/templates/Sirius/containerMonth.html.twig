@@ -36,11 +36,11 @@
                     {% for weekKey, weekRow in daysOfMonth %}
                         <tr >
                             {% for dayKey, dayRow in weekRow %}
-                                <td>
+                                <td style='{{dayRow.backgroundColor}}'>
                                     <a href="#" onclick="openDayModal({{ dayRow.onDay }}, {{ dayRow.onMonth }}, {{ dayRow.onYear }}, '{{ monthThitle[1].title}}')">
-                                    <span style="color:{{dayRow.color}}; ">
-                                        {{ dayRow.title }}
-                                    </span>
+                                        <span style="color:{{dayRow.color}}; ">
+                                            {{ dayRow.title }}
+                                        </span>
                                     </a>
                                 </td>
                             {% endfor %}
